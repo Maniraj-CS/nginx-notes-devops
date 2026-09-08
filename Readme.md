@@ -1,64 +1,61 @@
- Introduction to NGINX
+# Introduction to NGINX
 
-Nginx is an Opensource , high-performance web server that are also used for : 
+Nginx is an open-source, high-performance web server that is also used for:
 
-- as a Reverse Proxy
-- as a Load Balancer
-- as a HTTP cache
-- as a Mail proxy
+* Reverse Proxy
+* Load Balancer
+* HTTP Cache
+* Mail Proxy
 
-It is designed for high concurrency, performance, and low memory usage.
+It is designed for high concurrency, high performance, and low memory usage.
 
+## Installing NGINX
 
- Installing NGINX
+### Using Docker
 
- Using Docker
+Start a container:
 
- start a container
+> `docker run --name nginx -p 8080:80 -d nginx`
 
- > docker run --name nginx -p 8080:80 -d nginx
+If you want to run a terminal inside NGINX:
 
- if you want to run termenial inside nginx
+> `docker exec -it <container_id or container_name> bash`
 
- > docker exec -it <contianer_id or container_name> bash
+If the container is stopped, use this command to run it again:
 
- if container is stop the use this command to run again 
+> `docker start <container_name or container_id>`
 
- > docker run --name <container_name> -p 8080:80 -d nginx
+If you want to view logs:
 
- if you want to view logs then
+> `docker logs <container_name or container_id>`
 
- > docker logs <container_name or container_id>
+### Clean Up
 
- if you want to clean
+Stop the container:
 
- this line stop the container
- > docker stop <containr_name or container_id> 
+> `docker stop <container_name or container_id>`
 
- this line delete the container
- > docker rm <containr_name or container_id>
+Delete the container:
 
+> `docker rm <container_name or container_id>`
 
+### Using Linux/Mac
 
+> `sudo apt update && sudo apt upgrade -y`
 
- Using Linux/Mac
+> `sudo apt install nginx -y`
 
- > sudo apt update && sudo apt upgrade -y
- > sudo apt install nginx  -y
+## 📁 NGINX File Structure (Linux)
 
+```text
+File/Directory                     Purpose
 
- 📁 NGINX File Structure (Linux)
-
-```bash
- File/Directory	                    |                 Purpose
-                                    
- /etc/nginx/nginx.conf              |   Main configuration file
- /etc/nginx/sites-available/	    |   Stores virtual host (server block) configs
- /etc/nginx/sites-enabled/	        |   Symlinks to active site configs
- /var/www/html	                    |   Default web root directory
- /var/log/nginx/	                |   Contains access and error logs
+/etc/nginx/nginx.conf              Main configuration file
+/etc/nginx/sites-available/        Stores virtual host (server block) configs
+/etc/nginx/sites-enabled/          Symlinks to active site configs
+/var/www/html                      Default web root directory
+/var/log/nginx/                    Contains access and error logs
 ```
-
 
 # 📁 File Structure Recap
 
